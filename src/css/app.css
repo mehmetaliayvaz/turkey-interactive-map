@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+#turkey-map {
+    @apply cursor-pointer;
+
+    path {
+        @apply fill-gray-300 transition-all;
+    }
+}
