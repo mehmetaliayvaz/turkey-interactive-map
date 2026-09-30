@@ -28,7 +28,7 @@ Built with **Vue 3 + Vite + Tailwind CSS 4**.
 | Drag | Pan the map |
 | Scroll wheel / Double-click | Zoom in/out |
 | Click a province | Color it (or erase) |
-| Click the same province again | Deselect it |
+| Click the selected province again with the same color | Deselect it |
 | Click empty space | Deselect (anywhere off a province) |
 | `Esc` | Clear the selection |
 | `Ctrl+Z` / `Ctrl+Y` or `Ctrl+Shift+Z` | Undo / redo |
@@ -108,7 +108,7 @@ Türkiye'nin 81 ilini keşfedebileceğin, inceleyebileceğin ve dışa aktarabil
 | Sürükle | Haritayı kaydır |
 | Tekerlek / Çift tık | Yakınlaştır / uzaklaştır |
 | Bir ile tıkla | Boya (veya silgiyle temizle) |
-| Aynı ile tekrar tıkla | Seçimi kaldır |
+| Aynı renkle seçili ile tekrar tıkla | Seçimi kaldır |
 | Boş alana tıkla | Seçimi kaldır (il dışı her yer) |
 | `Esc` | Seçimi temizle |
 | `Ctrl+Z` / `Ctrl+Y` veya `Ctrl+Shift+Z` | Geri al / yinele |

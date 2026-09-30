@@ -51,7 +51,7 @@
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
         </button>
       </div>
-      <dl class="grid grid-cols-3 gap-1.5 text-xs">
+      <dl class="grid grid-cols-2 gap-1.5 text-xs">
         <div class="rounded-lg bg-slate-50 p-2">
           <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Yüzölçümü</dt>
           <dd class="font-bold text-slate-800">{{ formatNum(selected.area) }} km²</dd>
@@ -60,14 +60,6 @@
           <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Nüfus*</dt>
           <dd class="font-bold text-slate-800">~{{ formatNum(selected.population) }}</dd>
         </div>
-        <div class="rounded-lg bg-slate-50 p-2">
-          <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Renk</dt>
-          <dd class="flex items-center gap-1.5 font-bold text-slate-800">
-            <span class="inline-block h-3.5 w-3.5 flex-none rounded" :style="{ backgroundColor: currentColorOf(selected.id) }"></span>
-            <span v-if="state.colors[selected.id]" class="truncate font-mono text-[10px]">{{ state.colors[selected.id] }}</span>
-            <span v-else class="text-[10px] font-medium text-slate-400">boyasız</span>
-          </dd>
-        </div>
       </dl>
       <p class="mt-1.5 text-[10px] text-slate-400">*Nüfus değerleri yaklaşıktır.</p>
     </div>
@@ -75,13 +67,15 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { state, CITY_INFO, REGION_MAP, currentColorOf, formatNum } from "../composables/useMapStore.js";
 
 const open = ref(false);
 
 const selected = computed(() => (state.selectedId ? CITY_INFO[state.selectedId] : null));
 
-// bir il seçildiğinde paneli otomatik aç
-// (eski seçimden yeni seçime geçerken de açık kalsın)
+// Bir il seçildiğinde kartı otomatik aç (kullanıcı küçültse bile yeni seçimde açılır)
+watch(() => state.selectedId, (id) => {
+  if (id) open.value = true;
+});
 </script>

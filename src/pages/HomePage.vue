@@ -21,10 +21,10 @@
           <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Tekerlek</span> yakınlaştır</span>
           <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Tıkla</span> boya / sil</span>
           <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Çift tık</span> yakınlaştır</span>
-          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Aynı ile tekrar tıkla</span> seçimi kaldır</span>
+          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Aynı renkle tekrar tıkla</span> seçimi kaldır</span>
           <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Boş alana tıkla</span> seçimi kaldır</span>
           <span class="ml-auto hidden items-center gap-2 sm:inline-flex">
-            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span> Otomatik kaydedilir
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span> Tarayıcına kaydedilir
           </span>
         </div>
       </section>

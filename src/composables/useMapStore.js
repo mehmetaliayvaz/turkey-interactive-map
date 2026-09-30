@@ -120,13 +120,24 @@ export function eraseCity(id) {
   state.selectedId = id;
 }
 export function onPathClick(id) {
-  // Aynı ile tekrar tıklanırsa seçimi kaldır (toggle) — ek işlem yapma
-  if (state.selectedId === id) {
-    state.selectedId = null;
+  // Silgi aracı: her tıklamada rengi kaldır (seçili kalsın)
+  if (state.tool === "erase") {
+    eraseCity(id);
     return;
   }
-  if (state.tool === "erase") eraseCity(id);
-  else paintCity(id);
+  // Boya aracı:
+  if (state.selectedId === id) {
+    // Zaten seçili olan ile tekrar tıklandı:
+    // - boyasız veya farklı renkte ise BOYA (seçili kalsın)
+    // - aynı renkle zaten boyalıysa seçimi kaldır (toggle)
+    if (!state.colors[id] || state.colors[id] !== state.activeColor) {
+      paintCity(id);
+    } else {
+      state.selectedId = null;
+    }
+    return;
+  }
+  paintCity(id);
 }
 export function chooseColor(c) {
   state.activeColor = c;
