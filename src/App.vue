@@ -19,9 +19,9 @@
           </div>
           <div class="min-w-0">
             <h1 class="truncate text-base font-extrabold tracking-tight text-slate-900 sm:text-lg">
-              Türkiye Haritası <span class="font-semibold text-slate-400">· İnteraktif Boyama</span>
+              İnteraktif Türkiye Haritası <span class="font-semibold text-slate-400">· 81 İl</span>
             </h1>
-            <p class="truncate text-[11px] text-slate-500 sm:text-xs">81 ili boya, bölgeleri keşfet, haritanı PNG olarak indir.</p>
+            <p class="truncate text-[11px] text-slate-500 sm:text-xs">81 ili keşfet, bölgeleri incele, haritanı PNG olarak indir.</p>
           </div>
           <div class="ml-auto flex flex-none items-center gap-2">
             <span class="hidden rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 sm:inline-flex sm:items-center sm:gap-2">

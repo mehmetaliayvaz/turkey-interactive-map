@@ -1,7 +1,7 @@
-# 🗺️ Türkiye Haritası · İnteraktif Boyama / Interactive Turkey Map
+# 🗺️ İnteraktif Türkiye Haritası / Interactive Turkey Map
 
-Türkiye'nin 81 ilini boyayabileceğin, keşfedebileceğin ve dışa aktarabileceğin interaktif harita uygulaması.
-— An interactive map app to paint, explore and export Turkey's 81 provinces.
+Türkiye'nin 81 ilini keşfedebileceğin, inceleyebileceğin ve dışa aktarabileceğin interaktif harita uygulaması.
+— An interactive map app to explore, discover and export Turkey's 81 provinces.
 
 Yapı: **Vue 3 + Vite + Tailwind CSS 4** · Built with **Vue 3 + Vite + Tailwind CSS 4**
 
