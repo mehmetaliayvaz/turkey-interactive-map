@@ -4,14 +4,14 @@
       <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="m3 6 3-1 3 1 3-1 3 1 3-1 3 1" /><path d="M3 6v13" />
       </svg>
-      Bölgeyi Boya
+      {{ t("regionsTitle") }}
     </h3>
     <div class="grid grid-cols-2 gap-1.5">
       <button
         v-for="region in REGIONS"
         :key="region.id"
         type="button"
-        :title="`${region.name} Bölgesi'ni boya`"
+        :title="t('regionPainted', { name: region.name })"
         class="flex items-center gap-1.5 truncate rounded-lg border border-slate-100 px-2 py-1.5 text-left text-[11px] font-semibold text-slate-600 transition hover:border-slate-300 hover:bg-slate-50"
         @click="fillRegion(region.id)"
       >
@@ -25,7 +25,7 @@
       class="mt-2 w-full rounded-lg border border-dashed border-slate-300 py-1.5 text-[11px] font-semibold text-slate-500 transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600"
       @click="fillAllRegions"
     >
-      🗺️ Tüm bölgeleri kendi renkleriyle boya
+      {{ t("fillAllRegions") }}
     </button>
   </section>
 </template>
@@ -35,4 +35,5 @@ import {
   state, REGIONS, CITIES_BY_REGION,
   fillRegion, fillAllRegions, regionPainted,
 } from "../composables/useMapStore.js";
+import { t } from "../composables/useI18n.js";
 </script>

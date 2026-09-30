@@ -11,6 +11,7 @@ Built with **Vue 3 + Vite + Tailwind CSS 4**.
 ### ✨ Features
 
 - **Search** — Find a province by name or plate number; the result is zoomed into and highlighted on the map.
+- **TR / EN Language Switch** — Toggle the interface language (Turkish / English) from the header.
 - **Pan & Zoom** — Drag to move the map, use the scroll wheel or double-click to zoom in/out.
 - **Color / Erase** — Click a province to color it with the selected color; switch to the eraser to remove the color.
 - **Color Palette** — 16 preset colors plus a custom color picker. Selecting a color while a province is selected immediately applies it to that province.
@@ -49,7 +50,8 @@ npm run preview    # preview the production build
 ```
 src/
 ├── composables/
-│   └── useMapStore.js      # central state & actions
+│   ├── useMapStore.js      # central state & actions
+│   └── useI18n.js          # TR / EN translations & language switch
 ├── data/
 │   ├── cityPaths.js        # SVG path data for 81 provinces
 │   └── cities.js           # city info: name, plate, region, area, population
@@ -91,6 +93,7 @@ Türkiye'nin 81 ilini keşfedebileceğin, inceleyebileceğin ve dışa aktarabil
 ### ✨ Özellikler
 
 - **Arama** — İl adı veya plaka ile ara; sonuç haritada yakınlaştırılıp vurgulanır.
+- **TR / EN Dil Seçimi** — Başlıktan arayüz dilini değiştir (Türkçe / İngilizce).
 - **Pan & Zoom** — Sürükleyerek kaydır, tekerlekle ya da çift tıkla yakınlaştır/uzaklaştır.
 - **Boyama / Silme** — Seçili renkle ile tıkla; silgi aracına geçip rengi kaldır.
 - **Renk Paleti** — 16 hazır renk + özel renk seçici. Seçili bir il varken paletten renk seçersen renk anında o ile uygulanır.
@@ -129,7 +132,8 @@ npm run preview    # derlenen sürümü önizle
 ```
 src/
 ├── composables/
-│   └── useMapStore.js      # merkezi durum ve eylemler
+│   ├── useMapStore.js      # merkezi durum ve eylemler
+│   └── useI18n.js          # TR / EN çevirileri ve dil seçimi
 ├── data/
 │   ├── cityPaths.js        # 81 ilin SVG yol verileri
 │   └── cities.js           # il bilgileri: ad, plaka, bölge, yüzölçümü, nüfus

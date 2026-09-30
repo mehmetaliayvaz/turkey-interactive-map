@@ -12,7 +12,7 @@
       <svg class="h-4 w-4 flex-none text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" />
       </svg>
-      <span class="flex-1">Bir ile tıklayınca bilgisi burada görünür</span>
+      <span class="flex-1">{{ t("emptyHint") }}</span>
       <svg class="h-3.5 w-3.5 transition-transform" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
     </button>
 
@@ -45,7 +45,7 @@
         <button
           type="button"
           class="flex-none rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
-          aria-label="Küçült"
+          :aria-label="t('collapse')"
           @click="open = false"
         >
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
@@ -53,15 +53,15 @@
       </div>
       <dl class="grid grid-cols-2 gap-1.5 text-xs">
         <div class="rounded-lg bg-slate-50 p-2">
-          <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Yüzölçümü</dt>
+          <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-400">{{ t("area") }}</dt>
           <dd class="font-bold text-slate-800">{{ formatNum(selected.area) }} km²</dd>
         </div>
         <div class="rounded-lg bg-slate-50 p-2">
-          <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-400">Nüfus*</dt>
+          <dt class="text-[10px] font-semibold uppercase tracking-wide text-slate-400">{{ t("population") }}</dt>
           <dd class="font-bold text-slate-800">~{{ formatNum(selected.population) }}</dd>
         </div>
       </dl>
-      <p class="mt-1.5 text-[10px] text-slate-400">*Nüfus değerleri yaklaşıktır.</p>
+      <p class="mt-1.5 text-[10px] text-slate-400">{{ t("popNote") }}</p>
     </div>
   </div>
 </template>
@@ -69,6 +69,7 @@
 <script setup>
 import { ref, computed, watch } from "vue";
 import { state, CITY_INFO, REGION_MAP, currentColorOf, formatNum } from "../composables/useMapStore.js";
+import { t } from "../composables/useI18n.js";
 
 const open = ref(false);
 

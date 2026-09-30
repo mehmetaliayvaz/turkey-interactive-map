@@ -17,14 +17,14 @@
         </div>
 
         <div class="flex flex-none flex-wrap items-center gap-x-5 gap-y-1.5 px-1 text-xs text-slate-400">
-          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Sürükle</span> kaydır</span>
-          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Tekerlek</span> yakınlaştır</span>
-          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Tıkla</span> boya / sil</span>
-          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Çift tık</span> yakınlaştır</span>
-          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Aynı renkle tekrar tıkla</span> seçimi kaldır</span>
-          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">Boş alana tıkla</span> seçimi kaldır</span>
+          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">{{ t("hintDrag") }}</span> {{ t("hintDragRes") }}</span>
+          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">{{ t("hintWheel") }}</span> {{ t("hintWheelRes") }}</span>
+          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">{{ t("hintClick") }}</span> {{ t("hintClickRes") }}</span>
+          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">{{ t("hintDbl") }}</span> {{ t("hintDblRes") }}</span>
+          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">{{ t("hintSameColor") }}</span> {{ t("hintDeselect") }}</span>
+          <span class="inline-flex items-center gap-1.5"><span class="rounded bg-slate-200 px-1.5 py-0.5 font-bold text-slate-600">{{ t("hintEmpty") }}</span> {{ t("hintDeselect") }}</span>
           <span class="ml-auto hidden items-center gap-2 sm:inline-flex">
-            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span> Tarayıcına kaydedilir
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span> {{ t("hintSaved") }}
           </span>
         </div>
       </section>
@@ -38,6 +38,7 @@ import SidebarPanel from "../components/SidebarPanel.vue";
 import TurkeyMap from "../components/TurkeyMap.vue";
 import CityInfoPanel from "../components/CityInfoPanel.vue";
 import { clearSelection, undo, redo } from "../composables/useMapStore.js";
+import { t } from "../composables/useI18n.js";
 
 function onKeydown(e) {
   if (e.key === "Escape") clearSelection();

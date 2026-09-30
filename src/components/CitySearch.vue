@@ -4,20 +4,20 @@
       <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
       </svg>
-      İl Ara
+      {{ t("searchLabel") }}
     </label>
     <div class="relative">
       <input
         v-model="query"
         type="text"
-        placeholder="İl adı veya plaka… (örn. 34)"
+        :placeholder="t('searchPlaceholder')"
         class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 pr-9 text-sm outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
       />
       <button
         v-if="query"
         type="button"
         class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-400 transition hover:bg-slate-200 hover:text-slate-600"
-        aria-label="Aramayı temizle"
+        :aria-label="t('clearSearch')"
         @click="query = ''"
       >
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
@@ -36,13 +36,14 @@
         </button>
       </li>
     </ul>
-    <p v-else-if="query && !matches.length" class="mt-2 text-sm text-slate-400">Sonuç bulunamadı.</p>
+    <p v-else-if="query && !matches.length" class="mt-2 text-sm text-slate-400">{{ t("noResults") }}</p>
   </section>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 import { CITY_INFO, REGION_MAP, focusCity } from "../composables/useMapStore.js";
+import { t } from "../composables/useI18n.js";
 
 const query = ref("");
 

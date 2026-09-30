@@ -11,7 +11,7 @@
         class="relative block touch-none"
         viewBox="0 0 1024 500"
         role="img"
-        aria-label="Türkiye illeri haritası"
+        :aria-label="t('mapAria')"
         @pointerdown="onPointerDown"
         @pointermove="onPointerMove"
         @pointerup="onPointerUp"
@@ -57,11 +57,11 @@
 
     <!-- yakınlaştırma kontrolleri -->
     <div class="absolute right-3 top-3 flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white/90 shadow-lg backdrop-blur">
-      <button type="button" class="flex h-9 w-9 items-center justify-center text-slate-600 transition hover:bg-slate-100 active:scale-95" title="Yakınlaştır" @click="zoomStep(1.3)">+</button>
+      <button type="button" class="flex h-9 w-9 items-center justify-center text-slate-600 transition hover:bg-slate-100 active:scale-95" :title="t('zoomIn')" @click="zoomStep(1.3)">+</button>
       <div class="h-px bg-slate-200"></div>
-      <button type="button" class="flex h-9 w-9 items-center justify-center text-slate-600 transition hover:bg-slate-100 active:scale-95" title="Uzaklaştır" @click="zoomStep(1 / 1.3)">−</button>
+      <button type="button" class="flex h-9 w-9 items-center justify-center text-slate-600 transition hover:bg-slate-100 active:scale-95" :title="t('zoomOut')" @click="zoomStep(1 / 1.3)">−</button>
       <div class="h-px bg-slate-200"></div>
-      <button type="button" class="flex h-9 w-9 items-center justify-center text-slate-600 transition hover:bg-slate-100 active:scale-95" title="Görünümü sıfırla" @click="resetView">
+      <button type="button" class="flex h-9 w-9 items-center justify-center text-slate-600 transition hover:bg-slate-100 active:scale-95" :title="t('resetView')" @click="resetView">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" />
         </svg>
@@ -80,7 +80,7 @@
       :style="{ left: tooltip.x + 'px', top: Math.max(tooltip.y - 12, 8) + 'px' }"
     >
       <p class="whitespace-nowrap text-sm font-bold leading-tight">{{ CITY_INFO[tooltip.id]?.name }}</p>
-      <p class="whitespace-nowrap text-[11px] leading-tight text-slate-300">Plaka {{ CITY_INFO[tooltip.id]?.plate }}</p>
+      <p class="whitespace-nowrap text-[11px] leading-tight text-slate-300">{{ t("plate") }} {{ CITY_INFO[tooltip.id]?.plate }}</p>
     </div>
 
     <!-- bildirim -->
@@ -103,6 +103,7 @@ import {
   onPathClick, clearSelection, registerFocusHandler, registerSvg,
   toastMessage,
 } from "../composables/useMapStore.js";
+import { t } from "../composables/useI18n.js";
 
 const cardEl = ref(null);
 const mapSvg = ref(null);

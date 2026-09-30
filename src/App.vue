@@ -19,16 +19,35 @@
           </div>
           <div class="min-w-0">
             <h1 class="truncate text-base font-extrabold tracking-tight text-slate-900 sm:text-lg">
-              İnteraktif Türkiye Haritası <span class="font-semibold text-slate-400">· 81 İl</span>
+              {{ t("appTitle") }} <span class="font-semibold text-slate-400">· 81</span>
             </h1>
-            <p class="truncate text-[11px] text-slate-500 sm:text-xs">81 ili keşfet, bölgeleri incele, haritanı PNG olarak indir.</p>
+            <p class="truncate text-[11px] text-slate-500 sm:text-xs">{{ t("appSubtitle") }}</p>
           </div>
           <div class="ml-auto flex flex-none items-center gap-2">
+            <!-- dil seçimi / language switch -->
+            <div class="flex flex-none rounded-full border border-slate-200 bg-white p-0.5 shadow-sm">
+              <button
+                type="button"
+                :class="lang === 'tr' ? 'bg-slate-900 text-white shadow' : 'text-slate-500 hover:text-slate-700'"
+                class="rounded-full px-2.5 py-1 text-xs font-bold transition"
+                @click="setLang('tr')"
+              >
+                TR
+              </button>
+              <button
+                type="button"
+                :class="lang === 'en' ? 'bg-slate-900 text-white shadow' : 'text-slate-500 hover:text-slate-700'"
+                class="rounded-full px-2.5 py-1 text-xs font-bold transition"
+                @click="setLang('en')"
+              >
+                EN
+              </button>
+            </div>
             <span class="hidden rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 sm:inline-flex sm:items-center sm:gap-2">
               <svg class="h-3.5 w-3.5 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" />
               </svg>
-              81 İl · 7 Bölge
+              {{ t("headerChip") }}
             </span>
           </div>
         </div>
@@ -43,4 +62,5 @@
 
 <script setup>
 import HomePage from './pages/HomePage.vue';
+import { lang, setLang, t } from './composables/useI18n.js';
 </script>

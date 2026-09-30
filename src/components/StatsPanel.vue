@@ -2,7 +2,7 @@
   <section class="rounded-2xl border border-slate-200/80 p-3.5">
     <div class="mb-2 flex items-end justify-between">
       <div>
-        <p class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Boyanan il</p>
+        <p class="text-[11px] font-bold uppercase tracking-wider text-slate-500">{{ t("paintedLabel") }}</p>
         <p class="text-2xl font-extrabold leading-none text-slate-900">
           {{ paintedCount }}<span class="text-sm font-semibold text-slate-400"> / 81</span>
         </p>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="mb-2.5 flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2">
-      <span class="text-xs font-semibold text-slate-600">Plaka etiketleri</span>
+      <span class="text-xs font-semibold text-slate-600">{{ t("plateLabels") }}</span>
       <button
         type="button"
         role="switch"
@@ -36,7 +36,7 @@
         <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
         </svg>
-        PNG İndir
+        {{ t("downloadPng") }}
       </button>
       <button
         type="button"
@@ -46,7 +46,7 @@
         <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 6h18" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
         </svg>
-        Temizle
+        {{ t("clearAll") }}
       </button>
     </div>
   </section>
@@ -54,4 +54,5 @@
 
 <script setup>
 import { state, paintedCount, pct, savePNG, clearAll } from "../composables/useMapStore.js";
+import { t } from "../composables/useI18n.js";
 </script>

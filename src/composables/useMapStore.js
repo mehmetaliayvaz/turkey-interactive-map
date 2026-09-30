@@ -3,6 +3,7 @@
 import { reactive, ref, computed, watch } from "vue";
 import cityPaths from "../data/cityPaths.js";
 import { CITY_INFO, REGIONS, REGION_MAP, CITIES_BY_REGION } from "../data/cities.js";
+import { t } from "./useI18n.js";
 
 export const VB_W = 1024;
 export const VB_H = 500;
@@ -99,7 +100,7 @@ export function focusCity(id) {
   window.setTimeout(() => { state.focusId = null; }, 2400);
   if (focusHandler) focusHandler(id);
   const info = CITY_INFO[id];
-  showToast(`${info.name} bulundu${state.colors[id] ? " ✓" : ""}`);
+  showToast(`${t("cityFound", { name: info.name })}${state.colors[id] ? " ✓" : ""}`);
 }
 export function clearSelection() {
   state.selectedId = null;
@@ -155,21 +156,21 @@ export function fillRegion(regionId) {
   pushHistory();
   const col = REGION_MAP[regionId].color;
   CITIES_BY_REGION[regionId].forEach((id) => { state.colors[id] = col; });
-  showToast(`${REGION_MAP[regionId].name} Bölgesi boyandı`);
+  showToast(t("regionPainted", { name: REGION_MAP[regionId].name }));
 }
 export function fillAllRegions() {
   pushHistory();
   REGIONS.forEach((region) => {
     CITIES_BY_REGION[region.id].forEach((id) => { state.colors[id] = region.color; });
   });
-  showToast("Tüm bölgeler renklendirildi");
+  showToast(t("allRegionsPainted"));
 }
 export function clearAll() {
   if (Object.keys(state.colors).length === 0) return;
-  if (!window.confirm("Tüm illerdeki renkler silinsin mi?")) return;
+  if (!window.confirm(t("clearConfirm"))) return;
   pushHistory();
   Object.keys(state.colors).forEach((k) => delete state.colors[k]);
-  showToast("Harita temizlendi");
+  showToast(t("mapCleared"));
 }
 
 /* ---------- renk / stil yardımcıları ---------- */
@@ -251,8 +252,8 @@ export function savePNG() {
     a.download = "turkiye-haritasi.png";
     a.href = canvas.toDataURL("image/png");
     a.click();
-    showToast("PNG indirildi 🎉");
+    showToast(t("pngDownloaded"));
   };
-  img.onerror = () => { URL.revokeObjectURL(url); showToast("Dışa aktarma başarısız"); };
+  img.onerror = () => { URL.revokeObjectURL(url); showToast(t("pngFailed")); };
   img.src = url;
 }
